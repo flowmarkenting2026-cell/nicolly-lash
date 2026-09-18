@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Nicolly Lash Designer</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Parisienne&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: #f9eeee;
+      color: #171313;
+      line-height: 1.6;
+    }
+
+    /* =========================
+       CABEÇALHO
+    ========================= */
+
+    header {
+      position: relative;
+      overflow: hidden;
+      background: #f7e5e5;
+      padding: 55px 20px 35px;
+      text-align: center;
+    }
+
+    .logo-background {
+      position: absolute;
+      width: 430px;
+      height: 430px;
+      left: 50%;
+      top: 25px;
+      transform: translateX(-50%);
+      background-image: url("logo-nicolly.png");
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      filter: blur(18px);
+      opacity: 0.10;
+      z-index: 0;
+    }
+
+    .logo-box {
+      position: relative;
+      z-index: 2;
+      width: 155px;
+      height: 155px;
+      margin: 0 auto 30px;
+      border-radius: 20px;
+      overflow: hidden;
+      background: #ffffff;
+      box-shadow: 0 10px 30px rgba(80, 45, 45, 0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .logo-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    nav {
+      position: relative;
+      z-index: 3;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #171313;
+      background: rgba(255,255,255,0.75);
+      padding: 10px 16px;
+      border-radius: 30px;
+      font-size: 14px;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      background: #171313;
+      color: #ffffff;
+    }
+
+    /* =========================
+       SEÇÕES
+    ========================= */
+
+    section {
+      max-width: 1100px;
+      margin: auto;
+      padding: 75px 22px;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      text-align: center;
+      font-size: 38px;
+      margin-bottom: 45px;
+      color: #171313;
+    }
+
+    /* =========================
+       SOBRE
+    ========================= */
+
+    .about {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 55px;
+    }
+
+    .about-text h2 {
+      font-family: 'Parisienne', cursive;
+      font-size: 48px;
+      font-weight: 400;
+      margin-bottom: 20px;
+    }
+
+    .about-text p {
+      font-size: 17px;
+      color: #514747;
+    }
+
+    .about-photo {
+      display: flex;
+      justify-content: center;
+    }
+
+    .about-photo img {
+      width: 100%;
+      max-width: 400px;
+      height: 500px;
+      object-fit: cover;
+      object-position: center;
+      border-radius: 24px;
+      box-shadow: 0 15px 35px rgba(50, 30, 30, 0.15);
+    }
+
+    /* =========================
+       PROCEDIMENTOS
+    ========================= */
+
+    .procedures {
+      background: #ffffff;
+      max-width: 100%;
+    }
+
+    .procedures-inner {
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    .procedures-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 28px;
+    }
+
+    .procedure-card {
+      background: #f9eeee;
+      border-radius: 22px;
+      padding: 18px;
+      overflow: hidden;
+      box-shadow: 0 8px 25px rgba(70, 40, 40, 0.08);
+    }
+
+    .procedure-photo {
+      width: 100%;
+      height: 300px;
+      border-radius: 16px;
+      overflow: hidden;
+      background: #eee;
+      margin-bottom: 20px;
+    }
+
+    .procedure-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .procedure-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 27px;
+      margin-bottom: 5px;
+    }
+
+    .price {
+      font-family: 'Parisienne', cursive;
+      font-size: 34px;
+      color: #7b4f52;
+      margin-bottom: 12px;
+    }
+
+    .procedure-card p {
+      font-size: 15px;
+      color: #5b5050;
+    }
+
+    /* =========================
+       DURABILIDADE
+    ========================= */
+
+    .durability {
+      background: #f7e5e5;
+      max-width: 100%;
+    }
+
+    .durability-inner {
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .durability-box {
+      background: rgba(255,255,255,0.75);
+      border-radius: 25px;
+      padding: 40px;
+      box-shadow: 0 10px 30px rgba(80, 45, 45, 0.08);
+    }
+
+    .durability-box h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 25px;
+      margin-bottom: 15px;
+    }
+
+    .durability-box p {
+      margin-bottom: 30px;
+      color: #514747;
+    }
+
+    .durability-box p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* =========================
+       GALERIA
+    ========================= */
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 22px;
+    }
+
+    .gallery-item {
+      width: 100%;
+      height: 330px;
+      border-radius: 20px;
+      overflow: hidden;
+      background: #eee;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* =========================
+       POR QUE ESCOLHER
+    ========================= */
+
+    .why {
+      background: #ffffff;
+      max-width: 100%;
+    }
+
+    .why-inner {
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+    }
+
+    .why-card {
+      background: #f9eeee;
+      padding: 35px 25px;
+      text-align: center;
+      border-radius: 22px;
+    }
+
+    .why-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 23px;
+      margin-bottom: 12px;
+    }
+
+    .why-card p {
+      font-size: 15px;
+      color: #5b5050;
+    }
+
+    /* =========================
+       CONTATO
+    ========================= */
+
+    .contact {
+      text-align: center;
+      background: #f7e5e5;
+      max-width: 100%;
+    }
+
+    .contact-inner {
+      max-width: 700px;
+      margin: auto;
+    }
+
+    .contact h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 40px;
+      margin-bottom: 15px;
+    }
+
+    .contact p {
+      color: #514747;
+      margin-bottom: 30px;
+    }
+
+    .whatsapp-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      background: #171313;
+      color: #ffffff;
+      padding: 15px 30px;
+      border-radius: 40px;
+      font-size: 16px;
+      font-weight: 700;
+      transition: 0.3s;
+    }
+
+    .whatsapp-button:hover {
+      transform: translateY(-3px);
+      opacity: 0.9;
+    }
+
+    /* =========================
+       RODAPÉ
+    ========================= */
+
+    footer {
+      background: #171313;
+      color: #ffffff;
+      text-align: center;
+      padding: 30px 20px;
+    }
+
+    footer h3 {
+      font-family: 'Parisienne', cursive;
+      font-size: 32px;
+      font-weight: 400;
+      margin-bottom: 5px;
+    }
+
+    footer p {
+      font-size: 14px;
+      opacity: 0.8;
+    }
+
+    /* =========================
+       RESPONSIVO
+    ========================= */
+
+    @media (max-width: 800px) {
+
+      header {
+        padding-top: 40px;
+      }
+
+      .logo-box {
+        width: 135px;
+        height: 135px;
+      }
+
+      nav a {
+        font-size: 13px;
+        padding: 9px 12px;
+      }
+
+      section {
+        padding: 55px 18px;
+      }
+
+      .section-title {
+        font-size: 32px;
+        margin-bottom: 30px;
+      }
+
+      .about {
+        grid-template-columns: 1fr;
+        gap: 35px;
+      }
+
+      .about-text {
+        text-align: center;
+      }
+
+      .about-text h2 {
+        font-size: 43px;
+      }
+
+      .about-photo img {
+        height: 450px;
+      }
+
+      .procedures-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+      }
+
+      .procedure-card {
+        padding: 12px;
+      }
+
+      .procedure-photo {
+        height: 210px;
+      }
+
+      .procedure-card h3 {
+        font-size: 21px;
+      }
+
+      .price {
+        font-size: 28px;
+      }
+
+      .procedure-card p {
+        font-size: 13px;
+      }
+
+      .gallery-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+      }
+
+      .gallery-item {
+        height: 230px;
+      }
+
+      .why-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .durability-box {
+        padding: 28px 22px;
+      }
+
+      .contact h2 {
+        font-size: 32px;
+      }
+    }
+
+    @media (max-width: 450px) {
+
+      .procedures-grid {
+        gap: 10px;
+      }
+
+      .procedure-photo {
+        height: 175px;
+      }
+
+      .gallery-item {
+        height: 190px;
+      }
+
+      .procedure-card h3 {
+        font-size: 19px;
+      }
+
+      .price {
+        font-size: 25px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- =========================
+       TOPO
+  ========================= -->
+
+  <header id="inicio">
+
+    <div class="logo-background"></div>
+
+    <div class="logo-box">
+      <img src="logo-nicolly.png" alt="Nicolly Lash Designer">
+    </div>
+
+    <nav>
+      <a href="#inicio">Início</a>
+      <a href="#sobre">Sobre</a>
+      <a href="#procedimentos">Procedimentos</a>
+      <a href="#galeria">Galeria</a>
+      <a href="#contato">Contato</a>
+    </nav>
+
+  </header>
+
+
+  <!-- =========================
+       SOBRE A NICOLLY
+  ========================= -->
+
+  <section id="sobre">
+
+    <div class="about">
+
+      <div class="about-text">
+
+        <h2>Olá, eu sou a Nicolly!</h2>
+
+        <p>
+          Olá, eu sou a Nicolly! ✨ Sou apaixonada pelo universo dos cílios e por transformar olhares através do meu trabalho. Cada atendimento é realizado com cuidado, atenção aos detalhes e pensando no estilo e na beleza de cada cliente. Meu objetivo é fazer você se sentir ainda mais linda e confiante. 💕
+        </p>
+
+      </div>
+
+      <div class="about-photo">
+
+        <img
+          src="Nicolly profissional.jpg"
+          alt="Nicolly Lash Designer"
+          onerror="this.onerror=null;this.src='Nicolly profissional.jpeg';"
+        >
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       PROCEDIMENTOS
+  ========================= -->
+
+  <section class="procedures" id="procedimentos">
+
+    <div class="procedures-inner">
+
+      <h2 class="section-title">Procedimentos</h2>
+
+      <div class="procedures-grid">
+
+        <!-- BRASILEIRO -->
+
+        <div class="procedure-card">
+
+          <div class="procedure-photo">
+            <img
+              src="Brasileiro.jpg"
+              alt="Cílios Brasileiro"
+              onerror="this.onerror=null;this.src='Brasileiro.jpeg';"
+            >
+          </div>
+
+          <h3>Brasileiro</h3>
+
+          <div class="price">R$ 130,00</div>
+
+          <p>
+            Um procedimento pensado para realçar o olhar e deixar os cílios ainda mais marcantes.
+          </p>
+
+        </div>
+
+
+        <!-- EGÍPCIO -->
+
+        <div class="procedure-card">
+
+          <div class="procedure-photo">
+            <img
+              src="Egipicio.jpg"
+              alt="Cílios Egípcio"
+              onerror="this.onerror=null;this.src='Egipicio.jpeg';"
+            >
+          </div>
+
+          <h3>Egípcio</h3>
+
+          <div class="price">R$ 140,00</div>
+
+          <p>
+            Um estilo que valoriza o olhar, trazendo destaque e personalidade para os cílios.
+          </p>
+
+        </div>
+
+
+        <!-- FOX -->
+
+        <div class="procedure-card">
+
+          <div class="procedure-photo">
+            <img
+              src="fox.png"
+              alt="Cílios Fox"
+            >
+          </div>
+
+          <h3>Fox</h3>
+
+          <div class="price">R$ 150,00</div>
+
+          <p>
+            Uma proposta marcante para destacar o olhar com um efeito elegante e moderno.
+          </p>
+
+        </div>
+
+
+        <!-- TUFINHO -->
+
+        <div class="procedure-card">
+
+          <div class="procedure-photo">
+            <img
+              src="tufinho.png"
+              alt="Cílios Tufinho"
+            >
+          </div>
+
+          <h3>Tufinho</h3>
+
+          <div class="price">R$ 45,00</div>
+
+          <p>
+            Uma opção prática para quem deseja realçar o olhar de forma rápida e delicada.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       DURABILIDADE
+  ========================= -->
+
+  <section class="durability">
+
+    <div class="durability-inner">
+
+      <h2 class="section-title">Cuidados e durabilidade</h2>
+
+      <div class="durability-box">
+
+        <h3>Informações sobre a durabilidade dos cilios</h3>
+
+        <p>
+          <strong>Manutenção Fio a Fio</strong><br>
+          R$ 90,00<br>
+          Durabilidade de 15 a 20 dias
+        </p>
+
+        <h3>Informações sobre o cilios tufinho</h3>
+
+        <p>
+          Feito com cola fria<br>
+          Tem a durabilidade de 10 a 15 dias
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       GALERIA
+  ========================= -->
+
+  <section id="galeria">
+
+    <h2 class="section-title">Galeria</h2>
+
+    <div class="gallery-grid">
+
+      <div class="gallery-item">
+        <img
+          src="Brasileiro.jpg"
+          alt="Trabalho de cílios Brasileiro"
+          onerror="this.onerror=null;this.src='Brasileiro.jpeg';"
+        >
+      </div>
+
+      <div class="gallery-item">
+        <img
+          src="Egipicio.jpg"
+          alt="Trabalho de cílios Egípcio"
+          onerror="this.onerror=null;this.src='Egipicio.jpeg';"
+        >
+      </div>
+
+      <div class="gallery-item">
+        <img
+          src="fox.png"
+          alt="Trabalho de cílios Fox"
+        >
+      </div>
+
+      <div class="gallery-item">
+        <img
+          src="tufinho.png"
+          alt="Trabalho de cílios Tufinho"
+        >
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       POR QUE ESCOLHER
+  ========================= -->
+
+  <section class="why">
+
+    <div class="why-inner">
+
+      <h2 class="section-title">Por que escolher a Nicolly?</h2>
+
+      <div class="why-grid">
+
+        <div class="why-card">
+          <h3>Cuidado</h3>
+          <p>
+            Cada atendimento é realizado com atenção aos detalhes.
+          </p>
+        </div>
+
+        <div class="why-card">
+          <h3>Personalização</h3>
+          <p>
+            O procedimento é pensado para valorizar o estilo e a beleza de cada cliente.
+          </p>
+        </div>
+
+        <div class="why-card">
+          <h3>Confiança</h3>
+          <p>
+            Um atendimento pensado para você se sentir ainda mais linda e confiante.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       CONTATO
+  ========================= -->
+
+  <section class="contact" id="contato">
+
+    <div class="contact-inner">
+
+      <h2>Realce seu olhar</h2>
+
+      <p>
+        Quer transformar seu olhar? Entre em contato com a Nicolly e agende seu horário.
+      </p>
+
+      <a
+        class="whatsapp-button"
+        href="https://wa.me/553897549585"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Agende seu horário
+      </a>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       RODAPÉ
+  ========================= -->
+
+  <footer>
+
+    <h3>Nicolly Lash Designer</h3>
+
+    <p>Carbonita – MG</p>
+
+  </footer>
+
+
+</body>
+</html>
